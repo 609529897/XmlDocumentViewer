@@ -9,7 +9,7 @@ import { SvgIcon } from "@/components/SvgIcon";
 
 const Title = ({ title }: { title: string }) => (
   <div className="flex items-center text-[var(--kx-text-1)] font-semibold text-base mb-4">
-    <div className="w-[3px] h-[14px] bg-[var(--kx\_6)] mr-3"></div>
+    <div className="w-[3px] h-[14px] bg-blue-600 mr-3"></div>
     {title}
   </div>
 );
@@ -23,7 +23,7 @@ const AuthorsAndInstitutionsContent = ({ title, children, showCollapsed = false 
         <Title title={title} />
         {showCollapsed && (
           <span
-            className="text-[var(--kx\_6)] text-sm cursor-pointer flex items-center gap-1"
+            className="text-blue-600 text-sm cursor-pointer flex items-center gap-1"
             onClick={() => setCollapsed(!collapsed)}
           >
             {collapsed ? "展开所有" : "收起所有"}

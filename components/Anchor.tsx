@@ -35,7 +35,7 @@ const RenderList = ({
               onClick={(e) => onClick(e, href)}
               className={`text-sm w-full whitespace-nowrap inline-block overflow-hidden text-ellipsis mb-2 transition-colors relative ${
                 isActive
-                  ? "text-[var(--kx\\_6)] border-r-2 pr-4 border-[var(--kx\\_6)] *:after:content-[''] *:after:bg-[var(--kx\\_6)] *:after:absolute *:after:right-0 *:after:top-0"
+                  ? "text-blue-600 border-r-2 pr-4 border-blue-600 *:after:content-[''] *:after:bg-blue-600 *:after:absolute *:after:right-0 *:after:top-0"
                   : "text-[var(--kx-text-2)]"
               }`}
             >

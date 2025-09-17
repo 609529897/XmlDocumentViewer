@@ -50,7 +50,7 @@ export const FigGroup: React.FC<FigGroupProps> = ({ node }) => {
         <span className="text-sm font-semibold">{label}</span>
         <button 
           onClick={() => onFullScreen({ id, type: "image" })} 
-          className="bg-[var(--kx\_6)] rounded h-[30px] px-2 hover:bg-[var(--kx\_5)] active:bg-[var(--kx\_7)] text-sm text-white flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity"
+          className="bg-blue-600 rounded h-[30px] px-2 hover:bg-blue-500 active:bg-blue-700 text-sm text-white flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity"
         >
           <SvgIcon icon="icon-quanpingzhankai" />
           全屏查看

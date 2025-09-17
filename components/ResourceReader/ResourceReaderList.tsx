@@ -59,7 +59,7 @@ const List = ({ items, type, currentId, onChange }: ListProps) => {
             <div>
                 <span
               className={`text-xs inline-block text-white p-1 rounded ${
-                currentId === item.id ? 'bg-[var(--kx\\_6)]' : ''
+                currentId === item.id ? 'bg-blue-600' : ''
               }`}
             >
               {item.label}

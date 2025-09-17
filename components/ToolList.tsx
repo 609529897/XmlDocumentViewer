@@ -20,8 +20,8 @@ export const ToolList: React.FC<ToolListProps> = ({ items, activeKey, className 
           <button
             className={`
               w-full h-12 flex justify-center items-center text-[var(--kx-fill-6)]
-              ${item.disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer hover:text-white hover:bg-[var(--kx\\_6)]'} 
-              ${activeKey === idx ? 'bg-[var(--kx\\_6)] text-white' : 'bg-white'}
+              ${item.disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer hover:text-white hover:bg-blue-600'} 
+              ${activeKey === idx ? 'bg-blue-600 text-white' : 'bg-white'}
             `}
             onClick={() => !item.disabled && item.onClick(idx)}
           >

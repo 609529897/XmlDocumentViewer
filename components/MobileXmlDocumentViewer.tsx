@@ -22,7 +22,7 @@ import { hasCount } from '../utils';
 import { SvgIcon } from '@/components/SvgIcon';
 
 export function MobileXmlDocumentViewer(props: CommonProps): JSX.Element {
-  const { currentResourceVisible, setCurrentResourceVisible, data, parsedData, actions, pdf } = props;
+  const { currentResourceVisible, setCurrentResourceVisible, data, parsedData, actions, pdf, scrollContainer } = props;
   const { figures, tables, refList } = data;
 
   useConfigMathMl();
@@ -117,19 +117,19 @@ export function MobileXmlDocumentViewer(props: CommonProps): JSX.Element {
                     setCurrentIndex(index);
                   }}
                 >
-                  <SvgIcon className="w-5 h-5 text-[var(--kx\_6)]" icon={item.icon} />
+                  <SvgIcon className="w-5 h-5 text-blue-600" icon={item.icon} />
                 </div>
               ))}
             </div>
           )}
           placement="topLeft"
         >
-          <button className="w-10 h-10 rounded-full bg-[var(--kx\_6)] flex justify-center items-center">
+          <button className="w-10 h-10 rounded-full bg-blue-600 flex justify-center items-center">
             <SvgIcon className="w-5 h-5 text-white" icon="icon-gongneng" />
           </button>
         </Dropdown>
         <button
-          className="w-10 h-10 rounded-full bg-[var(--kx\_6)] flex justify-center items-center"
+          className="w-10 h-10 rounded-full bg-blue-600 flex justify-center items-center"
           onClick={() => setShowTitleList(true)}
         >
           <SvgIcon className="w-5 h-5 text-white" icon="icon-content" />
@@ -163,7 +163,7 @@ export function MobileXmlDocumentViewer(props: CommonProps): JSX.Element {
         }}
         closeIcon={false}
       >
-        <SideAnchor data={data} />
+        <SideAnchor data={data} scrollContainer={scrollContainer}/>
       </Drawer>
 
       {currentIndex >= 0 && (

@@ -18,7 +18,7 @@ function IconWrapper(props: any) {
             <button
                 onClick={props.onClick}
                 style={props.style}
-                className={`relative w-9 h-9 flex items-center rounded-lg justify-center mr-2 ${props.active ? 'bg-[var(--kx\\_6)]' : "hover:bg-[var(--kx-fill-tsp4)]"} ${props.disabled ? 'pointer-events-none' : ''}`}
+                className={`relative w-9 h-9 flex items-center rounded-lg justify-center mr-2 ${props.active ? 'bg-blue-600' : "hover:bg-[var(--kx-fill-tsp4)]"} ${props.disabled ? 'pointer-events-none' : ''}`}
             >
                 <SvgIcon 
                     icon={props.icon} 
@@ -90,7 +90,7 @@ const ResourceReaderHeader = (props: ResourceReaderHeaderProps) => {
             <div className="flex items-center text-white text-sm font-normal">
                 <div 
                     onClick={onClose} 
-                    className="cursor-pointer flex items-center py-2 px-3 rounded-lg whitespace-nowrap hover:bg-[var(--kx\_6)]"
+                    className="cursor-pointer flex items-center py-2 px-3 rounded-lg whitespace-nowrap hover:bg-blue-600"
                 >
                     <SvgIcon icon="icon-chexiao" className="text-base mr-1.5" />
                     返回文章

@@ -11,7 +11,7 @@ export const ExtLink = ({ children, node }: PropsWithChildren<Props>) => {
             // data-ext-link-type={type}
             target="blank"
             referrerPolicy="same-origin"
-            className="text-[var(--kx\_6)]"
+            className="text-blue-600"
             href={node.textContent || ""}
         >
             {children}

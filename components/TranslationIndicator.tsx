@@ -62,7 +62,7 @@ export const TranslationIndicator: React.FC<TranslationIndicatorProps> = ({
               }}>
               <SvgIcon
                 icon="icon-yi"
-                className="w-5 h-5 text-[var(--kx\_6)]"
+                className="w-5 h-5 text-blue-600"
               />
             </button>
           <Modal
@@ -88,7 +88,7 @@ export const TranslationIndicator: React.FC<TranslationIndicatorProps> = ({
             <button>
               <SvgIcon
                 icon="icon-yi"
-                className="w-5 h-5 text-[var(--kx\_6)]"
+                className="w-5 h-5 text-blue-600"
               />
             </button>
           </Dropdown>

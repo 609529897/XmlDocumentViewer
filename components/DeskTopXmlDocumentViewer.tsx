@@ -11,6 +11,7 @@ export function DeskTopXmlDocumentViewer(props: CommonProps): JSX.Element {
     pdf,
     data,
     parsedData,
+    scrollContainer,
   } = props;
 
   return (
@@ -32,7 +33,7 @@ export function DeskTopXmlDocumentViewer(props: CommonProps): JSX.Element {
         </div>
 
     <div className="fixed top-[128px] w-[226px] h-[calc(100vh-128px)] overflow-y-auto left-[calc((100vw-1200px)/2-260px)]">
-        <SideAnchor data={data} />
+        <SideAnchor data={data} scrollContainer={scrollContainer} />
     </div>
         {currentResourceVisible.id && (
           <ResourceReader

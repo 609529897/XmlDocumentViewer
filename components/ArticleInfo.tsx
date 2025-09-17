@@ -24,7 +24,7 @@ export const ArticleInfo = (props: Props) => {
             key={item.label}
             onClick={() => setActiveKey(i)}
             className={`flex-1 flex justify-center items-center text-base text-[var(--kx-text-3)] rounded-full cursor-pointer ${
-              activeKey === i ? "bg-[var(--kx\\_6)] text-white" : ""
+              activeKey === i ? "bg-blue-600 text-white" : ""
             }`}
           >
             {item.label}

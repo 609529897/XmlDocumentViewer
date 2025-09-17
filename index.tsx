@@ -12,43 +12,36 @@ interface ResourceVisible {
   type: 'image' | 'table';
 }
 
-export interface CommonProps {
+interface BaseViewerProps {
   actions?: React.ReactNode;
   pdf?: {
     viewUrl?: string;
     downloadUrl?: string;
   };
+  scrollContainer?: HTMLElement | Window | null; // 滚动容器，默认是 window
+}
+
+export interface CommonProps extends BaseViewerProps {
   parsedData: XMLParserResult;
   data: FormatArticleDataResult;
   currentResourceVisible: ResourceVisible;
   setCurrentResourceVisible: (currentResourceVisible: ResourceVisible) => void;
 }
 
-interface XmlDocumentViewerProps {
+export interface XmlDocumentViewerProps extends BaseViewerProps {
   xml: string;
   getResourceUrl?: (path: string) => string;
-  actions?: React.ReactNode;
-  pdf?: {
-    viewUrl?: string;
-    downloadUrl?: string;
-  };
 }
 
 export function XmlDocumentViewer(props: XmlDocumentViewerProps): JSX.Element {
-
-  const isMobile = useIsMobile();
-
-  const {
-    xml,
-    actions,
-    pdf,
-    getResourceUrl = () => '',
-  } = props;
+  const { xml, getResourceUrl = () => '', ...rest } = props;
 
   const [currentResourceVisible, setCurrentResourceVisible] = useState<ResourceVisible>({
     id: '',
     type: 'image',
   });
+
+  const isMobile = useIsMobile();
 
   const parsedData = useMemo(() => xmlParser({ xml }), [xml]);
   const data = formatArticleData(parsedData);
@@ -58,8 +51,7 @@ export function XmlDocumentViewer(props: XmlDocumentViewerProps): JSX.Element {
     setCurrentResourceVisible,
     data,
     parsedData,
-    pdf,
-    actions,
+    ...rest
   };
 
   return (

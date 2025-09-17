@@ -64,7 +64,7 @@ export const Images: React.FC<ImagesProps> = ({ data }) => {
   // 抽取全屏按钮组件
   const FullScreenButton: React.FC<{ onClick: () => void }> = ({ onClick }) => (
     <button
-      className="text-[var(--kx\_6)] text-sm flex gap-1 items-center"
+      className="text-blue-600 text-sm flex gap-1 items-center"
       onClick={onClick}
     >
       <SvgIcon icon="icon-quanpingzhankai" className="w-4 h-4" /> 

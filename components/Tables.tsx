@@ -71,7 +71,7 @@ const Table: React.FC<{ table: ParsedTable; }> = ({ table }) => {
       </div>
 
       <div className="flex justify-end">
-        <button className="text-[var(--kx\_6)] text-sm flex items-center gap-1" onClick={() =>  table.id && onFullScreen?.({ id: table.id, type: "table" })}>
+        <button className="text-blue-600 text-sm flex items-center gap-1" onClick={() =>  table.id && onFullScreen?.({ id: table.id, type: "table" })}>
           <SvgIcon icon="icon-quanpingzhankai" className=""/> 全屏查看
         </button>
       </div>

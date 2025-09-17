@@ -99,7 +99,10 @@ export function SideToolList ({ data }: { data: FormatArticleDataResult }) {
   return (
     <>
           <ToolList
-        items={TOOL_LIST.map((item) => ({ ...item, onClick: setCurrentIndex }))}
+        items={TOOL_LIST.map((item) => ({ ...item, onClick: (index) => {
+          setCurrentIndex(index);
+          setActiveKey(0);
+        } }))}
         activeKey={currentIndex}
         className="sticky top-12"
       />

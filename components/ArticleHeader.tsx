@@ -94,7 +94,7 @@ export function ArticleHeader({ data, parsedData, actions, pdf, width }: Article
         <div className="flex gap-4">
           {pdf?.viewUrl && (
             <button
-              className="border w-full  md:w-[136px] h-10 md:h-11 rounded-lg border-[var(--kx\_6)] text-[var(--kx\_6)] hover:border-[var(--kx\_7)] flex items-center justify-center gap-2 text-sm"
+              className="border w-full  md:w-[136px] h-10 md:h-11 rounded-lg border-blue-600 text-blue-600 hover:border-blue-700 flex items-center justify-center gap-2 text-sm"
               onClick={() => window.open(pdf.viewUrl)}
             >
               <SvgIcon icon="icon-pdf-3" className="w-5 h-5" /> PDF 在线阅读
@@ -102,7 +102,7 @@ export function ArticleHeader({ data, parsedData, actions, pdf, width }: Article
           )}
           {pdf?.downloadUrl && (
             <button
-              className="border w-full md:w-[136px] h-10 md:h-11 rounded-lg border-[var(--kx\_6)] text-[var(--kx\_6)] hover:border-[var(--kx\_7)] flex items-center justify-center gap-2 text-sm"
+              className="border w-full md:w-[136px] h-10 md:h-11 rounded-lg border-blue-600 text-blue-600 hover:border-blue-700 flex items-center justify-center gap-2 text-sm"
               onClick={() => window.open(pdf?.downloadUrl)}
             >
               <SvgIcon icon="icon-xiazai2" className="w-5 h-5" /> PDF 下载

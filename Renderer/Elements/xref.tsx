@@ -27,7 +27,7 @@ export const XRef = ({ rid, 'ref-type': type, children }: PropsWithChildren<Prop
         // 参考文献
         return (
             <a
-                className="text-[var(--kx\_6)]"
+                className="text-blue-600"
                 href={`#${rid}`}
                 data-type={type}
                 data-id={rid}

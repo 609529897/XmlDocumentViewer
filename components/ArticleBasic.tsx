@@ -4,7 +4,7 @@ import { Divider } from "./Divider";
 
 const Title = ({ title }: { title: string }) => (
   <div className="flex items-center text-[var(--kx-text-1)] font-semibold text-base mb-4">
-    <div className="w-[3px] h-[14px] bg-[var(--kx\_6)] mr-3"></div>
+    <div className="w-[3px] h-[14px] bg-blue-600 mr-3"></div>
     {title}
   </div>
 );

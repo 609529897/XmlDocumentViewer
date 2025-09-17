@@ -7,7 +7,7 @@ type ParsedSectionTitle = {
   title: string;
 };
 
-export function SideAnchor({ data }: { data: FormatArticleDataResult }) {
+export function SideAnchor({ data, scrollContainer }: { data: FormatArticleDataResult, scrollContainer?: HTMLElement | Window | null }) {
   const { abstracts, kwdGroups, titleList, refList } = data;
 
   const anchorList: ParsedSectionTitle[] = [
@@ -21,7 +21,7 @@ export function SideAnchor({ data }: { data: FormatArticleDataResult }) {
     <Anchor
       items={anchorList}
       offsetTop={20}
-      scrollContainer={document.getElementById("main-content")}
+      scrollContainer={scrollContainer}
     />
   )
 }

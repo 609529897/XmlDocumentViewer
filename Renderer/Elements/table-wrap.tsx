@@ -26,7 +26,7 @@ export function TableWrap({ node }: PropsWithChildren<Props>) {
               type: "table",
             })
           }
-          className="bg-[var(--kx_6)] rounded h-[30px] px-2 hover:bg-[var(--kx_5)] active:bg-[var(--kx_7)] text-sm text-white flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity"
+          className="bg-blue-600 rounded h-[30px] px-2 hover:bg-blue-500 active:bg-blue-700 text-sm text-white flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity"
         >
           <SvgIcon icon="icon-quanpingzhankai" />
           全屏查看
