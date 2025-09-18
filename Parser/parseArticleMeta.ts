@@ -1,3 +1,26 @@
+export type ParsedArticleMeta = ReturnType<typeof parseArticleMeta>
+
+export type Title = {
+  title: string;
+  subtitle: string;
+  lang: string;
+};
+
+export type KeywordGroup = {
+  type: string;
+  lang: string;
+  title: string;
+  keywords: string[];
+};
+
+export type PubDate = {
+  type: string;
+  year: string;
+  month: string;
+  day: string;
+  string: string;
+};
+
 export function parseArticleMeta(articleMeta: Element, defaultLang: string) {
   if (!articleMeta) return null;
 
@@ -25,7 +48,7 @@ export function parseArticleMeta(articleMeta: Element, defaultLang: string) {
 
   // 3. 标题组
   const titleGroup = articleMeta.querySelector("title-group");
-  const titles: { title: string; subtitle: string; lang: string }[] = [];
+  const titles: Title[] = [];
   if (titleGroup) {
     const mainTitle = titleGroup.querySelector("article-title");
     const mainSubtitle = titleGroup.querySelector("subtitle");
@@ -110,7 +133,7 @@ export function parseArticleMeta(articleMeta: Element, defaultLang: string) {
   }));
 
   // 7. 出版日期
-  const pubDates = Array.from(articleMeta.querySelectorAll("pub-date")).map((pd) => ({
+  const pubDates: PubDate[] = Array.from(articleMeta.querySelectorAll("pub-date")).map((pd) => ({
     type: pd.getAttribute("date-type") ?? "",
     string: pd.querySelector("string-date")?.textContent?.trim() ?? "",
     year: pd.querySelector("year")?.textContent?.trim() ?? "",
@@ -159,7 +182,7 @@ export function parseArticleMeta(articleMeta: Element, defaultLang: string) {
   // }));
 
   // 12. 关键词
-  const keywords = Array.from(articleMeta.querySelectorAll("kwd-group")).map((kg) => ({
+  const keywords: KeywordGroup[] = Array.from(articleMeta.querySelectorAll("kwd-group")).map((kg) => ({
     type: kg.getAttribute("kwd-group-type") ?? "",
     lang: kg.getAttribute("xml:lang") ?? defaultLang,
     title: kg.querySelector("title")?.textContent?.trim() ?? "",

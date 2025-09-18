@@ -1,8 +1,13 @@
 import { createContext } from "react";
 
+export type FullScreenParams = {
+  id: string; 
+  type: "image" | "table"
+}
+
 type ActionsContextType = {
   getResourceUrl: (path: string) => string;
-  onFullScreen: (params: { id: string; type: "image" | "table" }) => void;
+  onFullScreen: (params: FullScreenParams) => void;
 }
 
 export const ActionsContext = createContext<ActionsContextType>({

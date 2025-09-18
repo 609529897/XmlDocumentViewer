@@ -22,7 +22,7 @@ import { hasCount } from '../utils';
 import { SvgIcon } from '@/components/SvgIcon';
 
 export function MobileXmlDocumentViewer(props: CommonProps): JSX.Element {
-  const { currentResourceVisible, setCurrentResourceVisible, data, parsedData, actions, pdf, scrollContainer } = props;
+  const { fullScreen, setFullScreen, data, parsedData, actions, pdf, scrollContainer } = props;
   const { figures, tables, refList } = data;
 
   useConfigMathMl();
@@ -89,7 +89,7 @@ export function MobileXmlDocumentViewer(props: CommonProps): JSX.Element {
           <GoBack onClick={handleGoBack} />
           {actions}
         </div>
-        <div className="flex-1 flex gap-10 flex-col">
+        <div className="flex-1 flex gap-10 flex-col text-[var(--kx-text-1)]">
           <ArticleHeader pdf={pdf} data={data} parsedData={parsedData} width="80%" />
           <ArticleSummary data={data} />
           {parsedData.bodyNode && <Renderer node={parsedData.bodyNode} />}
@@ -136,10 +136,10 @@ export function MobileXmlDocumentViewer(props: CommonProps): JSX.Element {
         </button>
       </div>
 
-      {currentResourceVisible.id && (
+      {fullScreen.id && (
         <ResourceReader
-          current={currentResourceVisible}
-          setCurrent={setCurrentResourceVisible}
+          current={fullScreen}
+          setCurrent={setFullScreen}
           data={data}
         />
       )}

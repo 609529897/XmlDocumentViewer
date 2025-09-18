@@ -1,3 +1,5 @@
+export type ParsedBack = ReturnType<typeof parseBack>;
+
 export interface References {
   id: string;
   label: string;

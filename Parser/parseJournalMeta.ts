@@ -1,3 +1,5 @@
+export type ParsedJournalMeta = ReturnType<typeof parseJournalMeta>
+
 export function parseJournalMeta(journalMeta: Element, defaultLang: string) {
   if (!journalMeta) return null;
 

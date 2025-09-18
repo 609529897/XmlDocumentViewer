@@ -1,17 +1,11 @@
 import { useState, useMemo } from 'react';
 import { xmlParser, XMLParserResult } from './Parser';
-import { ActionsContext } from './context';
+import { ActionsContext, FullScreenParams } from './context';
 import { formatArticleData } from './utils';
 import { MobileXmlDocumentViewer } from './components/MobileXmlDocumentViewer';
 import { DeskTopXmlDocumentViewer } from './components/DeskTopXmlDocumentViewer';
 import { FormatArticleDataResult } from './utils/map';
 import { useIsMobile } from '@/hooks';
-
-interface ResourceVisible {
-  id: string;
-  type: 'image' | 'table';
-}
-
 interface BaseViewerProps {
   actions?: React.ReactNode;
   pdf?: {
@@ -24,8 +18,8 @@ interface BaseViewerProps {
 export interface CommonProps extends BaseViewerProps {
   parsedData: XMLParserResult;
   data: FormatArticleDataResult;
-  currentResourceVisible: ResourceVisible;
-  setCurrentResourceVisible: (currentResourceVisible: ResourceVisible) => void;
+  fullScreen: FullScreenParams;
+  setFullScreen: (fullScreen: FullScreenParams) => void;
 }
 
 export interface XmlDocumentViewerProps extends BaseViewerProps {
@@ -36,26 +30,26 @@ export interface XmlDocumentViewerProps extends BaseViewerProps {
 export function XmlDocumentViewer(props: XmlDocumentViewerProps): JSX.Element {
   const { xml, getResourceUrl = () => '', ...rest } = props;
 
-  const [currentResourceVisible, setCurrentResourceVisible] = useState<ResourceVisible>({
+  const isMobile = useIsMobile();
+
+  const [fullScreen, setFullScreen] = useState<FullScreenParams>({
     id: '',
     type: 'image',
   });
-
-  const isMobile = useIsMobile();
 
   const parsedData = useMemo(() => xmlParser({ xml }), [xml]);
   const data = formatArticleData(parsedData);
   
   const commonProps: CommonProps =  {
-    currentResourceVisible,
-    setCurrentResourceVisible,
+    fullScreen,
+    setFullScreen,
     data,
     parsedData,
     ...rest
   };
 
   return (
-    <ActionsContext.Provider value={{ getResourceUrl, onFullScreen: setCurrentResourceVisible }}>
+    <ActionsContext.Provider value={{ getResourceUrl, onFullScreen: setFullScreen }}>
       {isMobile ? <MobileXmlDocumentViewer {...commonProps}  /> : <DeskTopXmlDocumentViewer {...commonProps} />}
     </ActionsContext.Provider>
   );

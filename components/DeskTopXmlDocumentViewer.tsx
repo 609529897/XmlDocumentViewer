@@ -5,8 +5,8 @@ import { Renderer } from '../Renderer';
 export function DeskTopXmlDocumentViewer(props: CommonProps): JSX.Element {
 
   const {
-    currentResourceVisible,
-    setCurrentResourceVisible,
+    fullScreen,
+    setFullScreen,
     actions,
     pdf,
     data,
@@ -17,7 +17,7 @@ export function DeskTopXmlDocumentViewer(props: CommonProps): JSX.Element {
   return (
       <>
         <div className="flex items-start gap-[100px] py-12 w-[1200px] mx-auto">
-          <div className="flex-1 flex gap-10 flex-col">
+          <div className="flex-1 flex gap-10 flex-col text-[var(--kx-text-1)]">
             <ArticleHeader
               actions={actions}
               pdf={pdf}
@@ -35,10 +35,10 @@ export function DeskTopXmlDocumentViewer(props: CommonProps): JSX.Element {
     <div className="fixed top-[128px] w-[226px] h-[calc(100vh-128px)] overflow-y-auto left-[calc((100vw-1200px)/2-260px)]">
         <SideAnchor data={data} scrollContainer={scrollContainer} />
     </div>
-        {currentResourceVisible.id && (
+        {fullScreen.id && (
           <ResourceReader
-            current={currentResourceVisible}
-            setCurrent={setCurrentResourceVisible}
+            current={fullScreen}
+            setCurrent={setFullScreen}
             data={data}
           />
         )}

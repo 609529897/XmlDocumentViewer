@@ -1,4 +1,4 @@
-interface ParsedAffiliation {
+export interface ParsedAffiliation {
   id?: string;               
   label?: string;            
   lang?: string;             
